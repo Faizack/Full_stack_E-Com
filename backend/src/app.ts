@@ -4,6 +4,7 @@ import { errorMiddleware } from "./middlewares/error.js";
 import productRouter from "./routes/product.js";
 import userRouter from "./routes/user.js";
 import { connectDB } from "./utils/features.js";
+import path from "path";
 
 const app = express();
 const port = 5000;
@@ -14,6 +15,9 @@ app.use(express.json());
 // Use Router for API routes
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/product", productRouter);
+
+
+app.use("/uploads",express.static("uploads"));
 
 app.use(errorMiddleware)
 app.listen(port, host, async () => {

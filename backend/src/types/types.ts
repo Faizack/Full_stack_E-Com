@@ -10,6 +10,16 @@ export interface NewUserRequestBody {
     dob: Date;
 }
 
+export interface NewProductRequestBody {
+    _id: string;
+    name: string;
+    photo: string;
+    price: number;
+    stock: number;
+    category: string;
+}
+
+
 export type ControllerType = (
     req: Request, 
     res: Response, 
