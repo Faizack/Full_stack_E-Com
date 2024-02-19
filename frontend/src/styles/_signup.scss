@@ -1,0 +1,15 @@
+.signup{
+    margin-top: 10rem ;
+    @include flex(column,space-between,center,2rem);
+
+
+    h2{
+        @include heading(2px);
+    }
+
+    form{
+        @include flex(column,center,center,2rem);
+
+        @include form;
+    }
+}

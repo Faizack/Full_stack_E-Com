@@ -1,0 +1,16 @@
+.search {
+  h1 {
+    @include heading(2px);
+  }
+  aside{
+    width: 30%;
+    height: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+  }
+  main{
+    width: 70%;
+    border: 1px solid #000;
+    
+  }
+}

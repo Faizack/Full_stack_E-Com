@@ -1,0 +1,100 @@
+.cart {
+  padding: 2rem 4rem;
+  @include flex(row, space-between, stretch, 4rem);
+  height: calc(100vh - 4rem);
+
+  > main {
+    width: 80%;
+    overflow: auto;
+    text-align: center;
+
+    // &::-webkit-scrollbar{
+    //     display: none;
+    // }
+  }
+
+  aside {
+    width: 20%;
+    padding: 3rem;
+    @include flex(column, center, stretch, 1.5rem);
+
+    > input {
+      padding: 1rem;
+      border: 1px solid #272525;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    // margin-left: auto;
+  }
+
+  .cart-item {
+    @include flex(row, flex-start, center, 4rem);
+  
+    img {
+    @include square(10rem);
+      object-fit: contain;
+    }
+
+    article{
+        @include flex(column,center,flex-start,0.25rem);
+
+        a{
+            font-size: 1rem;
+
+            background-color: rgba(44, 104, 255, 0.455);
+            color: rgba(44, 104, 255);
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+        }
+        span{
+            font-size: 0.8rem;
+        }
+    }
+  }
+
+  .checkout-btn {
+    padding: 1rem 2rem;
+    background-color: #2e6294;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#1248dd, 10%);
+    }
+  }
+  
+
+  .cart-qantity {
+    @include flex(row, null, null, 2rem);
+
+
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+
+      &.plus {
+        background-color: green;
+      }
+      &.minus {
+        background-color: orange;
+      }
+      &.delete {
+        background-color: red;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+
+  
+}

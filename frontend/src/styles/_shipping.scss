@@ -1,0 +1,16 @@
+.shipping-info{
+
+    h1{
+        text-align: center;
+        @include heading(2px);
+        margin-bottom: 2rem;
+    }
+
+    form{
+        @include flex(column,center,center,2rem);
+
+        @include form;
+    }
+
+
+}
