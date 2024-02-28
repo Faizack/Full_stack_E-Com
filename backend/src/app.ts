@@ -1,16 +1,21 @@
 import express from "express";
+import NodeCache from "node-cache";
+import cors from "cors";
+import morgan from "morgan";
+import dotenv from "dotenv"
 
+import { connectDB } from "./utils/features.js";
 import { errorMiddleware } from "./middlewares/error.js";
+
+// Router
 import productRouter from "./routes/product.js";
 import userRouter from "./routes/user.js";
 import orderRouter from "./routes/order.js";
 import paymentRouter from "./routes/payment.js";
 
 
-import { connectDB } from "./utils/features.js";
-import NodeCache from "node-cache";
 
-import dotenv from "dotenv"
+
 
 dotenv.config()
 
@@ -22,6 +27,10 @@ const host = process.env.host || "127.0.0.1";
 const MongoDB_URL=process.env.MongoDB_URL
 
 app.use(express.json());
+app.use(morgan("dev"))
+app.use(cors())
+
+
 
 // Use Router for API routes
 app.use("/api/v1/user", userRouter);

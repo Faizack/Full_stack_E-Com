@@ -11,7 +11,6 @@ export const newUser = TryCatch(
     next: NextFunction
   ) => {
     const { name, email, photo, gender, role, dob } = req.body;
-
     if (!name || !email || !photo || !gender || !role) {
       return next(new ErrorHandler("Please give all required parameters", 400));
     }

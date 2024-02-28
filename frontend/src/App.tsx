@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Search from "./pages/search";
+import { Toaster } from "react-hot-toast";
 
 const Home = lazy(() => import("./pages/home"));
 const Cart = lazy(() => import("./pages/cart"));
@@ -97,6 +98,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
+      <Toaster />
     </Router>
   );
 }

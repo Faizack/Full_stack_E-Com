@@ -46,20 +46,18 @@ export type ControllerType = (
 ) => Promise<void | Response<any, Record<string, any>>>;
 
 
-export interface NewOrderRequestBody {
-    name: string;
-    photo: string;
-    price: number;
-    quantity: number;
-}
+
 export interface NewCouponRequestBody {
     code: string;
     amount: number;
 }
 
-interface OrderItem {
+export interface OrderItem {
     productId: mongoose.ObjectId;
     quantity: number;
+    name: string;
+    photo: string;
+    price: number;
 }
 
 interface ShippingInfo {

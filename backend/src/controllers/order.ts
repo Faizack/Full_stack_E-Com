@@ -1,10 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { TryCatch } from "../middlewares/error.js";
-import { NewOrderRequestBody } from "../types/types.js";
-import ErrorHandler from "../utils/utitlity.js";
-import { myCache } from "../app.js";
 import { Order } from "../models/order.js";
+import { NewOrderRequestBody } from "../types/types.js";
 import { reduceStock } from "../utils/features.js";
+import ErrorHandler from "../utils/utitlity.js";
 
 export const newOrder = TryCatch(
   async (
@@ -21,10 +20,10 @@ export const newOrder = TryCatch(
       subtotal,
       total,
       user,
-      quantity,
+      
     } = req.body;
 
-    if (!shippingCharges ||!ShippingInfo ||!tax ||!discount ||!subtotal ||!total ||!user ||!quantity) {
+    if (!shippingCharges ||!ShippingInfo ||!tax ||!discount ||!subtotal ||!total ||!user ||!orderItems) {
       return next(new ErrorHandler("Please give all required parameters", 400));
     }
     const order = await Order.create({
@@ -36,7 +35,6 @@ export const newOrder = TryCatch(
         subtotal,
         total,
         user,
-        quantity,
     })
 
     await reduceStock(orderItems)

@@ -4,8 +4,8 @@ import { RiAdminLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const userData = {
-  id: "1",
-  role: "admin",
+  id: "",
+  role: "",
 };
 const Header = () => {
   return (
@@ -19,13 +19,13 @@ const Header = () => {
       <Link to="/cart">
         <FaCartShopping />
       </Link>
-      {userData.role === "user" ? (
-        <Link to="/User">
-          <FaUser />
-        </Link>
-      ) : (
+      {userData.role === "admin" ? (
         <Link to="/admin/dashboard">
           <RiAdminLine />
+        </Link>
+      ) : (
+        <Link to="/User">
+          <FaUser />
         </Link>
       )}
     </nav>
